@@ -1,0 +1,16 @@
+.container {
+  background-color: #fff1eb;
+  height: auto;
+  text-align: center;
+}
+.heading {
+  font-family: 'Bree Serif';
+}
+.search-input {
+  width: 200px;
+  height: 30px;
+}
+.search-img {
+  height: 30px;
+  width: 30px;
+}

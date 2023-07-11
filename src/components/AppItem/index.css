@@ -1,0 +1,14 @@
+.icon-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-width: 0px;
+  padding: 20px;
+  margin: 10px;
+}
+.icon-img {
+  height: 50px;
+  width: 50px;
+}
+.icon-name {
+  font-weight: bold;
+}

@@ -1,0 +1,12 @@
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tabs-item {
+  border-width: 0px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  margin: 20px;
+}
