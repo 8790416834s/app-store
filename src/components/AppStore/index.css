@@ -14,3 +14,12 @@
   height: 30px;
   width: 30px;
 }
+.tabs-container {
+  display: flex;
+}
+.apps-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}

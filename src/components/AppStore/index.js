@@ -294,20 +294,29 @@ const initialAppsList = [
 
 // Write your code here
 class AppStore extends Component {
-  state = {searchInput: '', appsList: initialAppsList}
+  state = {
+    activeTabId: tabsList[0].tabId,
+    searchInput: '',
+    appsList: initialAppsList,
+  }
 
   searchInput = event => {
     this.setState({searchInput: event.target.value})
   }
 
   clickIcon = tabId => {
-    const {appsList} = this.state
-    const filterData = appsList.filter(each => each.tabId === tabId)
-    this.setState({appsList: filterData})
+    this.setState({activeTabId: tabId})
+  }
+
+  getFilteredApps = () => {
+    const {activeTabId, appsList} = this.state
+    const filteredApps = appsList.filter(each => each.category === activeTabId)
+    return filteredApps
   }
 
   render() {
-    const {searchInput, appsList} = this.state
+    const {searchInput, appsList, activeTabId} = this.state
+    const filteredApps = this.getFilteredApps()
     const searchValueList = appsList.filter(each =>
       each.appName.toLowerCase().includes(searchInput),
     )
@@ -326,16 +335,17 @@ class AppStore extends Component {
           alt="search icon"
           className="search-img"
         />
-        <ul>
+        <ul className="tabs-container">
           {tabsList.map(each => (
             <TabItem
               tabsList={each}
               clickIcon={this.clickIcon}
               key={each.tabId}
+              isActive={activeTabId === each.tabId}
             />
           ))}
         </ul>
-        <ul>
+        <ul className="apps-container">
           {searchValueList.map(each => (
             <AppItem searchValueList={each} key={each.appId} />
           ))}
